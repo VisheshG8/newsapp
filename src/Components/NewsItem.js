@@ -26,8 +26,7 @@ export class NewsItem extends Component {
             <p className="card-text my-4">{description}...</p>
             <p className="card-text">
               <small className="text-muted">
-                By {author ? author : "unknown"} on
-                {new Date(date)
+                By {author ? author : "unknown"} on {new Date(date)
                   .toLocaleString(undefined, {
                     day: "numeric",
                     month: "short",
