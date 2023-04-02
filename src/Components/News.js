@@ -10,7 +10,6 @@ const News = (props) => {
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(0)
-  const [progress , setProgress] = useState(0)
 
 
   const capitalizeFirstLetter = (string) => {
