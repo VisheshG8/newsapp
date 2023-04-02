@@ -3,11 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-function ColorSchemesExample() {
+const  ColorSchemesExample = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar className='sticky-top' bg="dark" variant="dark" expand="md">
       <Navbar.Brand as={Link} to="/">&nbsp;&nbsp;React News</Navbar.Brand>
       <Navbar.Toggle onClick={() => setExpanded(!expanded)} />
       <Navbar.Collapse className="justify-content-end" in={expanded}>
