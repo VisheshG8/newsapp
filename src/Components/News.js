@@ -18,39 +18,23 @@ const News = (props) => {
   };
 
  const fetchNews = async () => {
-    setProgress(10)
+    props.setProgress(10)
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     setLoading(true)
+    props.setProgress(50)
     let parsedData = await (await fetch(url)).json();
     console.log(parsedData)
     setArticles(articles.concat(parsedData.articles))
     setTotalArticles(parsedData.totalResults)
     setLoading(false)
     setPage(page+1)
-    setProgress(100)
+    props.setProgress(100)
 
   }
   useEffect(() => {
-    setProgress(10);
-  
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-    setLoading(true);
-  
-    fetch(url)
-      .then((response) => response.json())
-      .then((parsedData) => {
-        setArticles(parsedData.articles);
-        setTotalArticles(parsedData.totalResults);
-        setLoading(false);
-        setPage(page + 1);
-        setProgress(100);
-      });
+    fetchNews();
   }, []);
   
-  
-
-
-
     return (
       <>
         <h1 className="text-center my-4" style={{ fontSize: "40px" }}>
